@@ -1,3 +1,24 @@
 # start-config-typescript
-Repositório criado para treinar git do curso sobre Git do Rodrigo Mango.
-Criação de um ponto de partida para projetos, com configurações básicas.
+Repositório criado para ter uma configuração base para projetos em typescript.
+### libraries:
+
+-Typescript
+
+-Module-alias
+
+-Jest
+
+-Eslint
+
+-Git-commit-msg-linter
+
+-Husky
+
+-Lint-staged   
+
+-Nodemon
+
+-Ts-jest
+
+-Ts-node
+
