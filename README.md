@@ -1,5 +1,6 @@
 # start-config-typescript
-Repositório criado para ter uma configuração base para projetos em typescript.
+Repositório criado para participar do teste da empresa 3Tecnos. Para esse desafio estou utilizando nodejs com Typescript seguindo os princípios do Clean Architecture, SOLID, TDD, KISS e DRY.
+https://github.com/3Tecnos-Development/vagas
 ### libraries:
 
 -Typescript
