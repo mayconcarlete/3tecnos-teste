@@ -23,3 +23,7 @@ https://github.com/3Tecnos-Development/vagas
 
 -Ts-node
 
+-Express
+
+-Mongoose
+
