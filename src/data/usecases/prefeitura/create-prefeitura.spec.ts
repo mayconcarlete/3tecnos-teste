@@ -33,4 +33,9 @@ describe('Create Prefeitura', () => {
     await sut.create({ name: 'São Mateus' })
     expect(loadPrefeituraSpy).toHaveBeenCalledWith('São Mateus')
   })
+  test('Should return undefined if prefeitura already exists on DB', async () => {
+    const { sut } = makeSut()
+    const result = await sut.create({ name: 'São Mateus' })
+    expect(result).toBe(undefined)
+  })
 })
