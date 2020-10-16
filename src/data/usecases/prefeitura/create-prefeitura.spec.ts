@@ -23,7 +23,7 @@ export class MockAddPrefeituraAdapter implements ICreatePrefeituraAdapter {
 type SutTypes = {
   sut: CreatePrefeitura
   mockLoadPrefeituraByName: MockLoadPrefeitura
-  addPrefeituraAdapter:MockAddPrefeituraAdapter
+  addPrefeituraAdapter: MockAddPrefeituraAdapter
 }
 const makeSut = (): SutTypes => {
   const mockLoadPrefeituraByName = new MockLoadPrefeitura()
@@ -48,6 +48,12 @@ describe('Create Prefeitura', () => {
     expect(result).toBe(undefined)
   })
   test('Should call addPrefeituraAdapter with correct params', async () => {
+    const { sut, mockLoadPrefeituraByName } = makeSut()
+    jest.spyOn(mockLoadPrefeituraByName, 'load').mockReturnValueOnce(new Promise(resolve => resolve(undefined)))
+    const result = await sut.create({ name: 'São Mateus' })
+    expect(result).toEqual(prefeituraReponse)
+  })
+  test('Should return a Prefeitura if addAdapter succeeds', async () => {
     const { sut, mockLoadPrefeituraByName } = makeSut()
     jest.spyOn(mockLoadPrefeituraByName, 'load').mockReturnValueOnce(new Promise(resolve => resolve(undefined)))
     const result = await sut.create({ name: 'São Mateus' })
