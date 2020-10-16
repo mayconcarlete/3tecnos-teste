@@ -7,7 +7,7 @@ export class CreatePrefeitura implements ICreatePrefeitura {
   private readonly loadPrefeituraByName: ILoadPrefeituraByName
   private readonly createPrefeituraAdapter: ICreatePrefeituraAdapter
 
-  constructor (loadPrefeituraByName: ILoadPrefeituraByName, createPrefeituraAdapter:ICreatePrefeituraAdapter) {
+  constructor (loadPrefeituraByName: ILoadPrefeituraByName, createPrefeituraAdapter: ICreatePrefeituraAdapter) {
     this.loadPrefeituraByName = loadPrefeituraByName
     this.createPrefeituraAdapter = createPrefeituraAdapter
   }
