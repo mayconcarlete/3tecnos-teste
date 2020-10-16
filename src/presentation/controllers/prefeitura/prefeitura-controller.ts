@@ -4,7 +4,7 @@ import { THttpRequest, THttpResponse } from '@src/presentation/models/http-model
 import { IController } from '@src/presentation/protocols/controller'
 import { IValidator } from '@src/presentation/protocols/validator'
 
-export class PrefeituraController implements IController {
+export class CreatePrefeituraController implements IController {
   private readonly validators: IValidator
   private readonly createPrefeitura: ICreatePrefeitura
 

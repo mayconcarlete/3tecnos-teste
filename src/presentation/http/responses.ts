@@ -3,7 +3,7 @@ import { THttpResponse } from '../models/http-models'
 export const badRequest = (error: Error): THttpResponse => {
   return {
     statusCode: 400,
-    body: error
+    body: error.message
   }
 }
 

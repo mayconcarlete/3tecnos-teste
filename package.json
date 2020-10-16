@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "npm run-script build && node dist/src/index.js",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "test": "jest --watch",
+    "test": "jest --watch --runInBand",
     "test:staged": "jest"
   },
   "keywords": [],
@@ -41,6 +41,6 @@
     "mongoose": "^5.10.9"
   },
   "_moduleAliases": {
-    "@src": "dist/src"
+    "@src": "src"
   }
 }

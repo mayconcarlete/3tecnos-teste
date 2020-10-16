@@ -1,5 +1,5 @@
 export interface THttpRequest {
-  body: any
+  body?: any
   headers?: any
 }
 
