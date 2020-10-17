@@ -51,7 +51,7 @@ describe('Create Prefeitura', () => {
 
     jest.spyOn(addPrefeituraAdapter, 'add').mockImplementationOnce(async () => {
       return new Promise((resolve, reject) => {
-        reject(new Error('a'))
+        reject(new Error())
       })
     })
     await expect(sut.create({ name: 'any_name' })).rejects.toThrow()
