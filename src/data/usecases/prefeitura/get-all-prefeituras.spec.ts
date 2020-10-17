@@ -8,9 +8,10 @@ const prefeituraReponse: TPrefeitura = {
   createdAt: new Date(),
   updatedAt: new Date()
 }
+const mockArr = [prefeituraReponse,prefeituraReponse,prefeituraReponse]
+
 class MockGetPrefeituraAdapter implements IGetPrefeituraAdapter {
   async get (): Promise<TPrefeitura[]> {
-    const mockArr = [prefeituraReponse,prefeituraReponse,prefeituraReponse]
     return new Promise(resolve => resolve(mockArr))
   }
 }
@@ -31,5 +32,10 @@ describe('GetAllPrefeituras', () => {
     const { sut, getAllPrefeiturasAdapter } = makeSut()
     jest.spyOn(getAllPrefeiturasAdapter, 'get').mockReturnValueOnce(new Promise(() => { throw new Error() }))
     await expect(sut.getAll()).rejects.toThrow()
+  })
+  test('Should return an array with prefeituras in success', async () => {
+    const { sut } = makeSut()
+    const result = await sut.getAll()
+    expect(result).toEqual(mockArr)
   })
 })
