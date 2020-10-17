@@ -25,6 +25,7 @@ export class CreatePrefeituraController implements IController {
       }
       return ok(newPrefeitura)
     } catch (e) {
+      console.log(e)
       return serverError(e)
     }
   }
