@@ -13,7 +13,7 @@ export default model('Prefeitura', prefeitura)
 
 type PrefeituraOmitId = Omit<TPrefeitura, 'id'>
 
-interface PrefeituraModel extends PrefeituraOmitId, Document {}
+export interface PrefeituraModel extends PrefeituraOmitId, Document {}
 
 const prefeitura: Schema = new Schema({
   name: { type: String }
