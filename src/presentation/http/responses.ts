@@ -13,6 +13,12 @@ export const ok = (data: any): THttpResponse => {
     body: data
   }
 }
+export const created = (data: any): THttpResponse => {
+  return {
+    statusCode: 201,
+    body: data
+  }
+}
 
 export const serverError = (error: any): THttpResponse => {
   return {
