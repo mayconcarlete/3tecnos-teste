@@ -56,7 +56,6 @@ describe('Create Prefeitura', () => {
     })
     await expect(sut.create({ name: 'any_name' })).rejects.toThrow()
   })
-
   test('Should return undefined if prefeitura already exists on DB', async () => {
     const { sut } = makeSut()
     const result = await sut.create({ name: 'São Mateus' })
@@ -67,6 +66,16 @@ describe('Create Prefeitura', () => {
     jest.spyOn(mockLoadPrefeituraByName, 'load').mockReturnValueOnce(new Promise(resolve => resolve(undefined)))
     const result = await sut.create({ name: 'São Mateus' })
     expect(result).toEqual(prefeituraReponse)
+  })
+  test('Should throw if addPrefeituraAdapter throws', async () => {
+    const { sut, addPrefeituraAdapter, mockLoadPrefeituraByName } = makeSut()
+    jest.spyOn(mockLoadPrefeituraByName, 'load').mockReturnValueOnce(new Promise(resolve => resolve(undefined)))
+    jest.spyOn(addPrefeituraAdapter, 'add').mockImplementationOnce(async () => {
+      return new Promise(() => {
+        throw new Error()
+      })
+    })
+    await expect(sut.create({ name: 'any_name' })).rejects.toThrow()
   })
   test('Should return a Prefeitura if addAdapter succeeds', async () => {
     const { sut, mockLoadPrefeituraByName } = makeSut()
