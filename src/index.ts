@@ -8,5 +8,5 @@ mongoose.connect('mongodb://maykids:w2w2w2w2@ds221609.mlab.com:21609/tests', { u
       console.log('estamos on fire')
     })
   ).catch(e => {
-    console.log('err')
+    console.log(e)
   })

@@ -1,9 +1,15 @@
 import { ICreateCargoAdapter } from '@src/data/protocols/cargo/create-cargo'
+import { ILoadAllCargosAdapter } from '@src/data/protocols/cargo/load-all-cargos'
 import { ILoadCargoByCodigoAdapter, TLoadCargoByCodigoParams } from '@src/data/protocols/cargo/load-cargo-by-codigo'
 import { TCargo, TCargoParams } from '@src/domain/cargo/models/cargo'
 import Cargo, { CargoModel } from '../models/cargo'
 
-export class CargoDbAdapter implements ILoadCargoByCodigoAdapter, ICreateCargoAdapter {
+export class CargoDbAdapter implements ILoadCargoByCodigoAdapter, ICreateCargoAdapter, ILoadAllCargosAdapter {
+  async loadAll (): Promise<TCargo[]|[]> {
+    const cargos = await Cargo.find().populate('prefeituraId')
+    return cargos.map(cargo => this.remapId(cargo))
+  }
+
   async add (data: TCargoParams): Promise<TCargo> {
     const newCargo = await Cargo.create<any>(data)
     return this.remapId(newCargo)

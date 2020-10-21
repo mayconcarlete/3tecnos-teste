@@ -1,7 +1,7 @@
 import { TPrefeitura } from '@src/domain/prefeitura/model/prefeitura'
 export interface TCargo {
   id: string
-  prefeituraId: string
+  prefeituraId: TPrefeitura
   prefeitura: TPrefeitura
   cargoType: string
   codigo: number

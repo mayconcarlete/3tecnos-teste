@@ -5,8 +5,7 @@ type CargoOmitId = Omit<TCargo,'id'>
 export interface CargoModel extends CargoOmitId, Document{}
 
 const cargo = new Schema({
-  prefeituraId: { type: String },
-  prefeitura: { type: mongoose.Schema.Types.ObjectId, ref: 'Prefeitura' } ,
+  prefeituraId: { type: mongoose.Schema.Types.ObjectId, ref: 'Prefeitura' },
   cargoType: { type: String },
   codigo: { type: Number },
   cargoNome: { type: String },
