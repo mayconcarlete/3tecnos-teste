@@ -1,6 +1,8 @@
 # 3Tecnos Challenge
 Repositório criado para participar do teste da empresa 3Tecnos. Para esse desafio estou utilizando nodejs com Typescript seguindo os princípios do Clean Architecture, SOLID, TDD, KISS e DRY.
 https://github.com/3Tecnos-Development/vagas
+
+O repositório está em português e inglês por fins didáticos. 
 ### libraries:
 
 -Typescript
