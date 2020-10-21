@@ -14,7 +14,7 @@ const mockRequest: TCargoParams = {
 const mockResult: TCargo = {
   id: 'HASH_ID',
   prefeituraId: 'HASH_PREFEITURA_ID',
-  cargoNome: 'MockedCargo',
+  cargoNome: 'MOCKEDCARGO',
   cargoType: 'COMISSIONADO',
   codigo: 1234,
   prefeitura: { id: 'HASH_PREFEITURA_ID', name: 'any_prefeitura', createdAt: new Date(), updatedAt: new Date() },
@@ -61,7 +61,8 @@ describe('Create Cargo', () => {
     const { sut, createCargoAdapter } = makeSut()
     const createCargoSpy = jest.spyOn(createCargoAdapter, 'add')
     await sut.create(mockRequest)
-    expect(createCargoSpy).toHaveBeenCalledWith(mockRequest)
+    const passCargoToUppercase = Object.assign({}, mockRequest, { cargoNome: mockRequest.cargoNome.toUpperCase() })
+    expect(createCargoSpy).toHaveBeenCalledWith(passCargoToUppercase)
   })
   test('Should throw if loadCargoByCodigo throws', async () => {
     const { sut, loadCargoByCodigo } = makeSut()

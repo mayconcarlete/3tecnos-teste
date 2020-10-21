@@ -1,10 +1,13 @@
 import express from 'express'
 import prefeituraRoute from '../routes/prefeitura'
+import cargoRoute from '../routes/cargo'
 
 const app = express()
 app.use(express.json())
 
 prefeituraRoute(app)
+cargoRoute(app)
+
 /*
 app.post('/cargo', async (req, res) => {
   const result = await Cargo.create({

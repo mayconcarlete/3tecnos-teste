@@ -15,7 +15,7 @@ export class CreateCargo implements ICreateCargo {
     const { codigo, prefeituraId } = data
     const loadCargoById = await this.loadCargoByCodigo.get({ codigo, prefeituraId })
     if (!loadCargoById) {
-      const newCargo = await this.createCargoAdapter.add(data)
+      const newCargo = await this.createCargoAdapter.add(Object.assign({}, data, { cargoNome: data.cargoNome.toUpperCase() }))
       return newCargo
     }
     return undefined
