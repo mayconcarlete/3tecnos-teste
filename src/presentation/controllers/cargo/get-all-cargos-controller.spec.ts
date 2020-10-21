@@ -1,10 +1,18 @@
 import { TCargo } from '@src/domain/cargo/models/cargo'
 import { IgetAllCargos } from '@src/domain/cargo/usecases/get-all-cargos'
+import { TPrefeitura } from '@src/domain/prefeitura/model/prefeitura'
 import { GetAllCargosController } from './get-all-cargos-controller'
+
+const prefeituraReponse: TPrefeitura = {
+  id: 'HASHID',
+  name: 'São Mateus',
+  createdAt: new Date(),
+  updatedAt: new Date()
+}
 
 const mockResult: TCargo = {
   id: 'HASH_ID',
-  prefeituraId: 'HASH_PREFEITURA_ID',
+  prefeituraId: prefeituraReponse,
   cargoNome: 'MOCKEDCARGO',
   cargoType: 'COMISSIONADO',
   codigo: 1234,
