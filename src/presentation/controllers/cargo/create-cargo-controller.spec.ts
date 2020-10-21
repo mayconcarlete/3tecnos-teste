@@ -4,6 +4,7 @@ import { AlreadyExistsError } from '../../errors/already-exists-error'
 import { THttpRequest } from '@src/presentation/models/http-models'
 import { IValidator } from '@src/presentation/protocols/validator'
 import { CreateCargoController } from './create-cargo-controller'
+import { TPrefeitura } from '@src/domain/prefeitura/model/prefeitura'
 
 const req: THttpRequest = {
   body: {
@@ -16,9 +17,16 @@ const req: THttpRequest = {
     vagasTotais: 100
   }
 }
+const prefeituraReponse: TPrefeitura = {
+  id: 'HASHID',
+  name: 'São Mateus',
+  createdAt: new Date(),
+  updatedAt: new Date()
+}
+
 const mockResult: TCargo = {
   id: 'HASH_ID',
-  prefeituraId: 'HASH_PREFEITURA_ID',
+  prefeituraId: prefeituraReponse,
   cargoNome: 'MockedCargo',
   cargoType: 'COMISSIONADO',
   codigo: 1234,

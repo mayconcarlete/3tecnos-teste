@@ -1,6 +1,7 @@
 import { ICreateCargoAdapter } from '@src/data/protocols/cargo/create-cargo'
 import { ILoadCargoByCodigoAdapter, TLoadCargoByCodigoParams } from '@src/data/protocols/cargo/load-cargo-by-codigo'
 import { TCargo,TCargoParams } from '@src/domain/cargo/models/cargo'
+import { TPrefeitura } from '@src/domain/prefeitura/model/prefeitura'
 import { CreateCargo } from './create-cargo'
 
 const mockRequest: TCargoParams = {
