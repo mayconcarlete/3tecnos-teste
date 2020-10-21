@@ -2,6 +2,7 @@ import { ICreateCargoAdapter } from '@src/data/protocols/cargo/create-cargo'
 import { ILoadCargoByCodigoAdapter, TLoadCargoByCodigoParams } from '@src/data/protocols/cargo/load-cargo-by-codigo'
 import { TCargo,TCargoParams } from '@src/domain/cargo/models/cargo'
 import { CreateCargo } from './create-cargo'
+
 const mockRequest: TCargoParams = {
   prefeituraId: 'HASH_PREFEITURA_ID',
   cargoNome: 'MockedCargo',
@@ -11,9 +12,16 @@ const mockRequest: TCargoParams = {
   vagasPreenchidas: 0,
   vagasTotais: 100
 }
+const prefeituraReponse: TPrefeitura = {
+  id: 'HASHID',
+  name: 'São Mateus',
+  createdAt: new Date(),
+  updatedAt: new Date()
+}
+
 const mockResult: TCargo = {
   id: 'HASH_ID',
-  prefeituraId: 'HASH_PREFEITURA_ID',
+  prefeituraId: prefeituraReponse,
   cargoNome: 'MOCKEDCARGO',
   cargoType: 'COMISSIONADO',
   codigo: 1234,

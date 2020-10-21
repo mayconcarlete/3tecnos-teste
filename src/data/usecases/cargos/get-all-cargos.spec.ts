@@ -1,10 +1,16 @@
 import { ILoadAllCargosAdapter } from '@src/data/protocols/cargo/load-all-cargos'
 import { TCargo } from '@src/domain/cargo/models/cargo'
+import { TPrefeitura } from '@src/domain/prefeitura/model/prefeitura'
 import { GetAllCargos } from './get-all-cargos'
-
+const prefeituraReponse: TPrefeitura = {
+  id: 'HASHID',
+  name: 'São Mateus',
+  createdAt: new Date(),
+  updatedAt: new Date()
+}
 const mockResult: TCargo = {
   id: 'HASH_ID',
-  prefeituraId: 'HASH_PREFEITURA_ID',
+  prefeituraId: prefeituraReponse,
   cargoNome: 'MOCKEDCARGO',
   cargoType: 'COMISSIONADO',
   codigo: 1234,
